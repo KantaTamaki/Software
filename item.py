@@ -32,17 +32,14 @@ for quiz, question in enumerate(questions):
     # 選択肢を作る　（１）誤りの３つをいれる
     print(quiz)
     answers = []
-    reserve = []
     while len(answers) < 3:
         choice = random.randint(1, len(questions))
         if (choice != quiz + 1) and (questions[choice-1][2] not in answers): # 正解ではない、かつ既に含まれていない
             answers.append(questions[choice-1][2])
-            reserve.append(questions[choice-1][2])
-
+            
     # 選択肢を作る　（２）正解を入れる
     correct_ans = questions[quiz][2]
     answers.append(correct_ans)
-    reserve.append(correct_ans)
 
     # 選択肢を作る　（３）シャッフルする
     random.shuffle(answers)
